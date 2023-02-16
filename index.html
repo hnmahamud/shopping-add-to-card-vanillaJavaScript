@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.50.1/dist/full.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="navbar bg-base-100 shadow-lg">
+            <div class="w-[90%] md:w-[80%] mx-auto">
+                <div class="flex-1">
+                    <p class="normal-case text-xl font-bold">JavaScript</>
+                </div>
+                <div class="flex-none">
+                    <label tabindex="0" class="btn btn-ghost btn-circle">
+                        <div class="indicator">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                            <span class="badge badge-sm indicator-item">8</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="w-[90%] md:w-[80%] mx-auto mt-8 mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div id="all-card" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="card card-compact bg-base-100 shadow-xl">
+                        <figure><img class="md:w-full md:h-20" src="images/coffee.jpg" alt="Coffee JS" /></figure>
+                        <div class="card-body">
+                            <h2 id="coffee-title" class="card-title">Coffee JS</h2>
+                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                            <p>Price: $<span id="coffee-price">110</span></p>
+                            <p>Quantity: <span id="coffee-quantity">5</span></p>
+                            <div class="card-actions justify-end">
+                                <button id="coffee-btn" class="btn btn-primary btn-xs">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card-compact bg-base-100 shadow-xl">
+                        <figure><img class="w-full h-20" src="images/heart_js.jpg" alt="Heart JS" /></figure>
+                        <div class="card-body">
+                            <h2 id="heart-title" class="card-title">Heart JS</h2>
+                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                            <p>Price: $<span id="heart-price">200</span></p>
+                            <p>Quantity: <span id="heart-quantity">10</span></p>
+                            <div class="card-actions justify-end">
+                                <button id="heart-btn" class="btn btn-primary btn-xs">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card-compact bg-base-100 shadow-xl">
+                        <figure><img class="w-full h-20" src="images/panda.png" alt="Panda JS" /></figure>
+                        <div class="card-body">
+                            <h2 id="panda-title" class="card-title">Panda JS</h2>
+                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                            <p>Price: $<span id="panda-price">250</span></p>
+                            <p>Quantity: <span id="panda-quantity">5</span></p>
+                            <div class="card-actions justify-end">
+                                <button id="panda-btn" class="btn btn-primary btn-xs">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card-compact bg-base-100 shadow-xl">
+                        <figure><img class="w-full h-20" src="images/umbrella.png" alt="Umbrella JS" /></figure>
+                        <div class="card-body">
+                            <h2 id="umbrella-title" class="card-title">Umbrella JS</h2>
+                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                            <p>Price: $<span id="umbrella-price">100</span></p>
+                            <p>Quantity: <span id="umbrella-quantity">3</span></p>
+                            <div class="card-actions justify-end">
+                                <button id="umbrella-btn" class="btn btn-primary btn-xs">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card-compact bg-base-100 shadow-xl">
+                        <figure><img class="w-full h-20" src="images/vue-js.jpg" alt="Vue JS" /></figure>
+                        <div class="card-body">
+                            <h2 id="vue-title" class="card-title">Vue JS</h2>
+                            <p>If a dog chews shoes whose shoes does he choose?</p>
+                            <input id="vue-price" type="text" placeholder="Price"
+                                class="input input-bordered input-xs w-full max-w-xs" />
+                            <input id="vue-quantity" type="text" placeholder="Quantity"
+                                class="input input-bordered input-xs w-full max-w-xs" />
+                            <div class="card-actions justify-end">
+                                <button id="vue-btn" class="btn btn-primary btn-xs">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex flex-col">
+                    <div class="text-center">
+                        <h1 class="text-2xl font-bold">
+                            Total Products: <span id="total-product"><span id="total-products">0</span></span>
+                        </h1>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="table w-full">
+                            <!-- head -->
+                            <thead>
+                                <tr>
+                                    <th>NO</th>
+                                    <th>NAME</th>
+                                    <th>PRICE</th>
+                                    <th>QUANTITY</th>
+                                    <th>TOTAL</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="table-container">
+                                <!-- <tr>
+                                    <th>NO</th>
+                                    <td>NAME</td>
+                                    <td>PRICE</td>
+                                    <td>QUANTITY</td>
+                                    <td>TOTAL</td>
+                                    <td><button>Square</button></td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="border-t-2 mt-2">
+                        <h1 class="text-lg font-bold">
+                            Total Price: <span id="total-product"><span id="final-total">0</span></span>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="js/utilities.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
