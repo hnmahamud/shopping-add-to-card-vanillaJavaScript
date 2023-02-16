@@ -7,25 +7,14 @@ function setTextFieldValue (elementId, value) {
 function getCardInfo(cardTitle, cardPrice, cardQuantity) {
     const title = document.getElementById(cardTitle).innerText;
     const price = document.getElementById(cardPrice).innerText;
-    const quantity = document.getElementById(cardQuantity).innerText;
-    const allData = [title, price, quantity];
-    return allData;
-}
-
-
-function getCardInfoInput(cardTitle, cardPrice, cardQuantity) {
-    const title = document.getElementById(cardTitle).innerText;
-    const price = document.getElementById(cardPrice);
     const quantity = document.getElementById(cardQuantity);
-    if(!isNaN(price.value) && !isNaN(quantity.value) && price.value !== '' && quantity.value !== '') {
-        const allData = [title, price.value, quantity.value];
-        price.value = '';
-        quantity.value = '';
+    if(!isNaN(quantity.value) && quantity.value !== '' && quantity.value > 0) {
+        const allData = [title, price, quantity.value];
+        quantity.value = 1;
         return allData;
     }
     else {
-        price.value = '';
-        quantity.value = '';
+        quantity.value = 1;
         alert('Please input valid number!')
         return false;
     }
@@ -37,7 +26,6 @@ function setTableInfo (allInfo) {
     const price = parseFloat(allInfo[1]);
     const quantity = parseFloat(allInfo[2]);
     const total = price * quantity;
-    finalTotal = finalTotal + total
     const tableContainer = document.getElementById('table-container');
     const newTr = document.createElement('tr');
     newTr.innerHTML = `
@@ -45,11 +33,10 @@ function setTableInfo (allInfo) {
     <td>${title}</td>
     <td>${price}</td>
     <td>${quantity}</td>
-    <td>${total}</td>
+    <td class="total">${total}</td>
     <td><button class="btn btn-xs">Delete</button></td>
     `
     tableContainer.appendChild(newTr);
-    setTextFieldValue('final-total', finalTotal);
 }
 
 
@@ -64,14 +51,13 @@ function manageCardSerial (totalItem, itemSerial) {
 }
 
 
-let finalTotal = parseFloat(document.getElementById('final-total').innerText);
-function manageCart (btn, finalTotalId) {
-    const delTotalField = btn.parentNode.previousSibling.previousSibling;
-
-    const mainTotalField = document.getElementById(finalTotalId);
-    const newMainTotal = parseFloat(mainTotalField.innerText) - parseFloat(delTotalField.innerText);
-    mainTotalField.innerText = newMainTotal;
-    finalTotal = finalTotal - parseFloat(delTotalField.innerText);
-
-    btn.parentNode.parentNode.remove();
+function manageCartFinalTotal (finalTotalId, allTotalClass) {
+    const finalTotal = document.getElementById(finalTotalId);
+    const allTotal = document.getElementsByClassName(allTotalClass);
+    let allTotalSum = 0;
+    for(let i = 0; i < allTotal.length; i++) {
+        allTotalSum = allTotalSum + parseFloat(allTotal[i].innerText);
+        console.log(allTotal[i].innerText);
+    }
+    finalTotal.innerText = allTotalSum;
 }
